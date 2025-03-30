@@ -1,14 +1,25 @@
-function selectPlan(planNumber) {
-    const plans = document.querySelectorAll(".plan");
-    plans.forEach(plan => plan.classList.remove("plan--selected"));
-    const selectedPlan = document.getElementById(`plan${planNumber}`);
-    if (selectedPlan) {
-        selectedPlan.classList.add("plan--selected");
+const selectPlan = (planNumber) =>{
+    const plan1 = document.querySelector('#plan1')
+    const plan2 = document.querySelector('#plan2')
+    const plan3 = document.querySelector('#plan3')
+
+    if (planNumber === 1){
+        plan1.classList.add('plan--selected')
+        plan2.classList.remove('plan--selected')
+        plan3.classList.remove('plan--selected')
+    }
+    else if (planNumber === 2){
+        plan1.classList.remove('plan--selected')
+        plan2.classList.add('plan--selected')
+        plan3.classList.remove('plan--selected')
+    }
+    else if (planNumber === 3){
+        plan1.classList.remove('plan--selected')
+        plan2.classList.remove('plan--selected')
+        plan3.classList.add('plan--selected')
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".plan").forEach((plan, index) => {
-        plan.addEventListener("click", () => selectPlan(index + 1));
-    });
-});
+selectPlan(1);
+selectPlan(2);
+selectPlan(3)
